@@ -71,3 +71,36 @@ input, textarea {
     color: white;
     cursor: pointer;
  }
+
+ @media screen and (max-width: 600px) {
+    #titulo{
+    width: 50%;
+    height: auto;
+    position:absolute;
+    top:40vh;
+    left: 25vw;
+    }
+
+    #loginbox{
+    position:absolute;
+    top:70vh;
+    left:5vw;
+    padding: 0px
+    }
+
+    #nome{
+        width: 40vw;
+    }
+
+    #senha{
+        width: 40vw;
+    }
+
+    input, textarea{
+        font-size: 25px;
+    }
+
+    button{
+        font-size: 20px;
+    }  
+}

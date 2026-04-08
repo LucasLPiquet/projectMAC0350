@@ -15,7 +15,6 @@ body{
     display:block;
 }
 
-/* tudo fica em cima da imagem */
 form{
     position:absolute;
     top:0;
@@ -80,4 +79,37 @@ input, textarea {
     background-color: #000000;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    #titulo{
+    width: 50%;
+    height: auto;
+    position:absolute;
+    top:40vh;
+    left: 25vw;
+    }
+
+    #loginbox{
+    position:absolute;
+    top:70vh;
+    left:25vw;
+    padding: 0px
+    }
+
+    #nome{
+        width: 90vw;
+    }
+
+    #senha{
+        width: 90vw;
+    }
+
+    input, textarea{
+        font-size: 30px;
+    }
+
+    button{
+        font-size: 20px;
+    }  
 }
