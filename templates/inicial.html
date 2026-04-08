@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="/static/inicial.js"></script>
+    <link rel="stylesheet" href="/static/styleinicial.css">
+</head>
+<body>
+    <div class="container">
+
+        <img class="background" src="/static/caderno_aberto.png">
+
+        <form>
+            <img id="titulo" src="/static/titulo.png">
+
+            <div id="loginbox">
+                <input type="text" id="nome" placeholder="Nome">
+                <input type="password" id="senha" placeholder="Senha">
+
+                <div id="botoes_login">
+                    <button type="button" onclick="entrar()">Entrar</button>
+                    <button type="button" onclick="window.location.href='/cadastro'">Cadastrar-se</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

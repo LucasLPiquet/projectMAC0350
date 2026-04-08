@@ -1,0 +1,73 @@
+body{
+    margin:0;
+}
+
+.container{
+    position:relative;
+    width:100vw;
+    height:100vh;
+}
+
+.background{
+    width:100%;
+    height:150%;
+    object-fit:cover;
+    display:block;
+}
+
+form{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+#titulo{
+    width: 25%;
+    height: auto;
+    position:absolute;
+    top:25vh;
+    left: 39vw;
+}
+
+#loginbox{
+    position:absolute;
+    top:60vh;
+    left:39vw;
+}
+@media screen and (max-height: 900px) {
+    #titulo{
+    width: 25%;
+    height: auto;
+    position:absolute;
+    top:25vh;
+    left: 39vw;
+}
+
+#loginbox{
+    position:absolute;
+    top:60vh;
+    left:39vw;
+}
+}
+input, textarea { 
+    color: black; 
+    font-family: "Brush Script MT", cursive;
+    border: none;
+    outline: none;
+    padding: 0.5% 1%;
+    transition: border-color 0.3s ease;
+    font-size:2vw;
+    background: transparent;
+
+ } button { 
+    font-size:2vw;
+    border: none;
+    outline: none;
+    height: 3%;
+    padding: 1% 2%;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+ }

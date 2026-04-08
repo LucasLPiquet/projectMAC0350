@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudando</title>
+    <link rel="stylesheet" href="/static/styleestudando.css">
+</head>
+<body>
+    {%if user %}
+    <h1 id="titulo">Tempo de estudo:</h1>
+    <h2 id="contador">00:00:00</h2>
+    <h1 id="frenesi"></h1>
+
+    {% else %}
+        <p>Por favor, faça login para acessar o conteúdo de estudo.</p>
+    {% endif %}
+    
+</body>
+<script>
+
+    function calcularCocos(segundosEstudados) {
+    let cocos = 0;
+    minutosEstudados = Math.floor(segundosEstudados / 60);
+
+    if (minutosEstudados <= 30) {
+        cocos = Math.floor(segundosEstudados / 60); 
+    } else {
+        cocos = 30; // 30 cocôs nos primeiros 30 min
+        cocos += Math.floor((segundosEstudados - 30*60) / 20);
+    }
+
+    return cocos;
+    }
+
+    function spawnCoco() {
+    const coco = document.createElement('div');
+    coco.textContent = '💩';
+    coco.style.cssText = `
+        position: fixed;
+        font-size: 48px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        animation: sumir 2s forwards;
+    `;
+    document.body.appendChild(coco);
+
+    setTimeout(() => coco.remove(), 2000);
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const tempo = params.get('tempo');
+    console.log(tempo);
+    let pontuacao = 0;
+    let segundos = 0;
+
+    function formatarTempo(s) {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const seg = s % 60;
+    return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(seg).padStart(2, '0');
+    }
+
+    const intervalo = setInterval(() => {
+    segundos++;
+    document.getElementById('contador').textContent = formatarTempo(segundos);
+    const cocosAntes = calcularCocos(segundos - 1);
+    const cocosAgora = calcularCocos(segundos);
+
+    if (cocosAgora > cocosAntes) {
+        spawnCoco();
+    }
+    
+    if (Math.floor(segundos / 60) === 30) {
+        document.getElementById('frenesi').textContent = 'FRENESI DE ESTUDO ATIVADO!';
+    }
+    }, 1000);
+    if (tempo) {
+    setTimeout(() => {
+        clearInterval(intervalo);
+        pontuacao = calcularCocos(tempo*60) * pontosPorCoco;
+        const form = new FormData();
+        form.append('pontos', pontuacao);
+        form.append('tempo', tempo);
+        fetch('/profile/estudando/venceu', {
+            method: 'POST',
+            body: form
+        }).then(() => {
+            window.location.href = '/profile/vencedor';
+        });
+    }, tempo * 60 * 1000);
+    }
+
+    const pontosPorCoco = 5;
+    pontuacao = calcularCocos(tempo*60) * pontosPorCoco;
+    let perdeu = false;
+
+    function onActivity() {
+    if (perdeu) return;
+    perdeu = true;
+    const minutosEstudados = Math.floor(segundos / 60);
+    const pontuacao = calcularCocos(segundos) * pontosPorCoco;
+
+    const form = new FormData();
+    form.append('pontos', pontuacao);
+    fetch('/profile/estudando/perdeu', {
+            method: 'POST',
+            body: form
+        }).then(() => {
+            window.location.href = '/profile/perdedor';
+        });
+    }
+
+    const EVENTOS = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'touchmove', 'click'];
+
+    setTimeout(() => {
+    EVENTOS.forEach(ev => window.addEventListener(ev, onActivity, { passive: true }));
+    }, 500);
+
+</script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lacre</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+    <link rel="stylesheet" href="/static/stylevencedor.css">
+</head>
+<body>
+    <h1 id="msg_venceu"> Você ganhou {{ pontuacao }} pontos, divou!</h1>
+    <form 
+        hx-post="/profile/vencedor/salvar_pontuacao"
+    >
+        <button id="volta" type="submit">Voltar</button>
+    </form>
+</body>
+</html>

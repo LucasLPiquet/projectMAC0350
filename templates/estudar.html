@@ -1,0 +1,48 @@
+
+<div class="estudar-container">
+    <div id="tudo_estudar"></div>
+    <div id="estudar-box"></div>
+    <button id="info_button" type="button" onclick="MostrarTexto()">Informações</button>
+        <div id="avisos" style="display: none;">
+        <h4> Ao clicar em estudar, não mova em nada no dispositivo, caso contrário, o tempo de estudo não será registrado.</h4>
+        <h4> O tempo de estudo só será registrado se o botão "Começar" for clicado, e o tempo só será registrado enquanto o usuário estiver na página de estudo. </h4>
+        <h4> Quanto mais tempo você estudar, mais cocôs a cabra faz, e mais pontos você acumulará.</h4>
+        <h4> 1 cocô = 5 pontos</h4>
+        <h4> A cabra faz 1 cocô a cada minuto de estudo na primeira meia hora, depois, ela faz 1 cocô a cada 20 segundos.</h4>
+        </div>
+        <div id="area_estudar">
+        <textarea id="tempo" name="tempo" rows="4" cols="50" placeholder="Digite o tempo que você vai estudar em minutos"></textarea>
+        <button type="button" id="botao-salvar" onclick=irEstudar() >Começar</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+function irEstudar() {
+  const input = document.getElementById('tempo').value.trim();
+  const tempo = parseInt(input);
+
+  if (isNaN(tempo) || tempo <= 0) {
+    alert('Digite um número válido de minutos!');
+    return;
+  }
+  if (!tempo) return alert('Digite o tempo!');
+  window.location.href = `estudando?tempo=${encodeURIComponent(tempo)}`;
+}
+
+function MostrarTexto() {
+  const texto = document.getElementById('avisos');
+  const area = document.getElementById('area_estudar');
+  const botao = document.getElementById('info_button');
+  if (texto.style.display === 'none') {
+    texto.style.display = 'block';
+    area.style.display = 'none';
+    botao.textContent = 'Esconder informações';
+  } else {
+    texto.style.display = 'none';
+    area.style.display = 'block';
+    botao.textContent = 'Informações';
+  }
+}
+</script>

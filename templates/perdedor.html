@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAHAHAHHAHA</title>
+    <link rel="stylesheet" href="/static/styleperdedor.css">
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <div id="risada1">
+        <h1>HAHAHAHHAHA</h1>
+    </div>
+    <div id="msg_perdeu">
+        <h1> Você perdeu {{ pontuacao }} pontos, seu idiota!</h1>
+    </div>
+    <form 
+        hx-post="/profile/perdedor/sair"
+    >
+        <button id="perdao" type="submit">Pedir perdão</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+
+    background-image: url("/static/bodefeliz.png");
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+#msg_venceu{
+    margin-top: 5vh;
+    font-size: 30px;
+    animation: arcoiris 2s linear infinite;
+}
+
+@keyframes arcoiris {
+    0%   { color: hsl(0, 100%, 50%); }
+    25%  { color: hsl(90, 100%, 50%); }
+    50%  { color: hsl(180, 100%, 50%); }
+    75%  { color: hsl(270, 100%, 50%); }
+    100% { color: hsl(360, 100%, 50%); }
+}
+
+button { 
+    border-radius: 2vh;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    height: 3%;
+    padding: 1% 2%;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+ }
+#volta{
+    margin-top: 65vh;
+    font-size: 30px;
+    height: 50px;
+    width: 100px;
+}

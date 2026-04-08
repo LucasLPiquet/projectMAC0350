@@ -1,0 +1,309 @@
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+
+    background-image: url("/static/profile.png");
+    background-size: cover;      /* ocupa a tela inteira */
+    background-position: center; /* centraliza */
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    background-attachment: fixed; /* fundo acompanha o scroll */
+}
+
+#profile-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* imagem cobre toda a tela */
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+#titulo{
+    width: 30vh;
+    height: auto;
+    position:absolute;
+    top:2vh;
+}
+
+#nome-usuario{
+    margin-top: 20vh;
+    font-size: 30px;
+    border-bottom: 0;
+    margin-bottom: 0;
+    font-family: "Brush Script MT", cursive;
+}
+
+#navegacao{
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+}
+
+#biografia{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 2vh;
+}
+
+#id_user{
+    margin-top: 0px;
+    font-size: 15px;
+}
+
+input, textarea { 
+    color: rgb(0, 0, 0); 
+    font-family: "Brush Script MT", cursive;
+    border: none;
+    outline: none;
+    padding: 0.5% 1%;
+    transition: border-color 0.3s ease;
+    font-size: 25px;
+    background-color: #ffffff7e
+}
+
+#sair-button {
+    position: absolute;
+    top: 95vh;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: normal;
+    padding-top: 0px;
+}
+
+#salvar-bio-button { 
+    font-size: 20px;
+    border: none;
+    outline: none;
+    height: 3%;
+    padding: 1% 2%;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+button { 
+    border-radius: 2vh;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    height: 3%;
+    padding: 1% 2%;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+ }
+
+ #editar-bio-form{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#salvar-bio-button { 
+    font-size: 20px;
+    border: none;
+    outline: none;
+    height: 3%;
+    padding: 1% 2%;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+#pontuacao{
+    margin-top: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tudo_estudar{
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tempo{
+    width: 20vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#avisos{
+    width: 50vw;
+    background-color: #4d8d347e;
+}
+
+#conquistas_titulo{
+    margin-left: 15vw;
+    margin-top: 25vh;
+}
+
+#lista_conquistas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    background-color: #4d8d3481;
+    width: 50vw;
+    font-size: 20px;
+}
+
+#lista_amizade{
+    height: 10vh;
+    max-height: 10vh;
+    overflow-y: auto;
+    background-color: #4d8d34c2;
+}
+
+#lista_users{
+    max-height: 15vh;
+    height: 15vh;
+    overflow-y: auto;
+    background-color: #4d8d34bd;
+    }
+
+#ver_amigos{
+    background-color: #4d8d3444;
+    margin-top: 5vh;
+    font-size: 20px;
+}
+
+#amigos{
+    background-color: #4d8d345b;
+}
+
+#adicionar-amigo{
+    background-color: #4d8d34cc;
+}
+
+#button_remover_amg{
+    font-size: 17px;
+}
+
+#button_adicionar_amg{
+    font-size: 17px;
+}
+
+@media (max-width: 650px) {
+
+    #nome-usuario{
+        font-size: 20px;
+    }
+
+    #biografia{
+        font-size: 15px
+    }
+
+    #id_user{
+        font-size: 10px;
+    }
+
+    #tempo{
+    width: 50vw;
+    height: 10vh;
+    }
+
+    #avisos{
+        width: 90vw;
+        background-color: #4d8d34d8;
+        font-size: 15px;
+    }
+
+    #conquistas_titulo{
+        margin-left: 5vw;
+        margin-top: 0vh;
+    }
+}
+
+@media (max-height: 700px) {
+    #nome-usuario{
+        font-size: 20px;
+    }
+
+    #navegacao{
+        top: 90vh;
+        gap: 0vh;
+    }
+
+    #biografia{
+        font-size: 15px
+    }
+
+    #pontuacao{
+        margin-top: 20vh;
+    }
+
+    #ver_amigos{
+        margin-top: 0vh;
+    }
+
+    input{
+        font-size: 15px;
+    }
+
+    #button_remover_amg{
+        font-size: 15px;
+    }
+
+     #button_adicionar_amg{
+        font-size: 15px;
+    }
+
+    #tempo{
+    width: 50vw;
+    height: 10vh;
+    }
+
+
+    
+    #pontuacao{
+        margin-top: 25vh;
+    }
+}
+
+@media (max-height: 850px) {
+    #lista_conquistas{
+        width: 90vw;
+        background-color: #4d8d34d8;
+        font-size: 15px;
+    }
+
+    #conquistas_titulo{
+        margin-left: 5vw;
+        margin-top: 0vh;
+    }
+
+    #avisos{
+        width: 90vw;
+        background-color: #4d8d34d8;
+        font-size: 15px;
+    }
+
+    #tudo_estudar{
+    margin-top: 0vh;
+    }
+}

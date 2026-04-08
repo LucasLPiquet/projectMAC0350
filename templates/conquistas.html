@@ -1,0 +1,18 @@
+
+<div class="conquistas-container">
+    <h2 id="conquistas_titulo">Conquistas:</h2>
+
+    <ul id="lista_conquistas">
+    {% for conquista in conquistas %}
+        {% if conquista.id in ids_conquistas %} 
+            <li>FEITA- {{ conquista.nome }} -
+                {{ conquista.descricao }}
+            </li>
+        {% else %}
+            <li>NÃO FEITA- {{ conquista.nome }} -
+                {{ conquista.descricao }}
+             </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bode da Produtividade</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <link rel="stylesheet" href="/static/styleprofile.css">
+</head>
+<body>
+    {% if user %}
+    <div id="profile-content">
+        <img id="titulo" src="/static/titulo.png">
+
+        <h1 id="nome-usuario">Página de {{ user.nome }}</h1>
+
+        <h2 id="biografia">Bio: {{ user.bio }}</h2>
+
+        <h3 id="id_user">ID: {{ user.id }}</h3>
+
+        <main   id="conteudo"
+                hx-get="{{ pagina }}"
+                hx-target="main"
+                hx-trigger="load"
+                hx-push-url="true">
+        </main>
+
+        <button id="sair-button" type="button" onclick="window.location.href='/'">Sair</button>
+    </div>
+
+    <nav id="navegacao">
+        <button hx-get="/profile/perfil"
+                hx-target="#conteudo"
+                hx-push-url="true">
+            Perfil
+        </button>
+        <button hx-get="/profile/estudar{% if perdeu %}?perdeu=true{% endif %}"
+                hx-target="#conteudo"
+                hx-push-url="true">
+            Estudar
+        </button>
+        <button hx-get="/profile/conquistas"
+                hx-target="#conteudo"
+                hx-push-url="true">
+            Conquistas
+        </button>
+        <button hx-get="/profile/social"
+                hx-target="#conteudo"
+                hx-push-url="true">
+            Social
+        </button>
+    </nav>
+
+
+
+    {% else %}
+        <p>Por favor, faça login para acessar seu blog.</p>
+        <button id="sair-button" type="button" onclick="window.location.href='/'">Sair</button>
+    {% endif %}
+    
+</body>
+</html>

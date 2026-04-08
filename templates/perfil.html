@@ -1,0 +1,13 @@
+<div class="perfil-container">
+    Edite sua biografia:
+    <form 
+        hx-patch="/atualizar_bio"
+        hx-target="#biografia"
+        hx-swap="outerHTML"
+    >
+        <textarea name="bio">{{ user.bio }}</textarea>
+        <button type="submit">Salvar</button>
+    </form>
+    <h2 id="pontuacao"> Pontuação: {{ user.pontuacao }}</h2>
+</div>
+</div>

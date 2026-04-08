@@ -1,0 +1,55 @@
+
+<div class="social-container">
+    <div id="ver_amigos"></div>
+        <h2 id="amigos">Amigos</h2>
+        <input type="text"  
+                name="busca_amigos"
+                placeholder="Buscar amigos..."
+                hx-get="/profile/social/listar_amigos"
+                hx-target="#lista_amizade"
+                hx-trigger="input changed delay:500ms"
+                hx-select="#lista_amizade">
+        <div id="lista_amizade">
+            <ul>
+            {% for amigo in amigos %}
+                <li>{{ amigo.nome }} - {{amigo.id}} ({{ amigo.pontuacao }}): {{ amigo.bio }}
+                    <button id="button_remover_amg"
+                            hx-post="/profile/social/remover_amigo" 
+                            hx-target="#lista_amizade" 
+                            hx-swap="outerHTML" 
+                            name="amigo_id" 
+                            value="{{ amigo.id }}">
+                        Remover
+                    </button>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <h2 id="adicionar-amigo">Adicionar amigo</h2>
+       
+    <input type="text"  
+            name="busca_users"
+            placeholder="Buscar usuários..."
+            hx-get="/profile/social/listar_users"
+            hx-target="#lista_users"
+            hx-trigger="input changed delay:500ms"
+            hx-select="#lista_users">
+
+    <div id="lista_users">
+        <ul>
+            {% for user in users %}
+                <li>{{ user.nome }} - {{ user.id }}
+                <button
+                        id="button_adicionar_amg"
+                        hx-post="/profile/social/adicionar_amigo" 
+                        hx-target="#lista_amizade" 
+                        hx-swap="outerHTML" 
+                        name="user_id" 
+                        value="{{ user.id }}">
+                    Adicionar
+                </button>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
